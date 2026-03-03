@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cat Tap - How High Can Your Kitty Fly?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen">
+            <div class="logo">
+                <span class="logo-emoji">🐈‍⬛</span>
+                <h1>Cat Tap</h1>
+            </div>
+            <p class="tagline">How high can your kitty fly?</p>
+            
+            <div class="instructions">
+                <div class="instruction-item">
+                    <span class="key">👆</span>
+                    <span>Tap / Click to jump</span>
+                </div>
+                <div class="instruction-item">
+                    <span class="key">⌨️</span>
+                    <span>Spacebar to jump</span>
+                </div>
+                <div class="instruction-item">
+                    <span class="key">⏸️</span>
+                    <span>P to pause</span>
+                </div>
+            </div>
+
+            <div class="powerups-preview">
+                <p class="preview-title">Collect power-ups!</p>
+                <div class="powerup-icons">
+                    <div class="powerup-icon" title="Shield">
+                        <span class="orb shield">🛡️</span>
+                        <span class="label">Shield</span>
+                    </div>
+                    <div class="powerup-icon" title="Slow-mo">
+                        <span class="orb slowmo">⏱️</span>
+                        <span class="label">Slow-mo</span>
+                    </div>
+                    <div class="powerup-icon" title="DoublePoints">
+                        <span class="orb double">⭐</span>
+                        <span class="label">2x Points</span>
+                    </div>
+                </div>
+            </div>
+
+            <button id="startBtn" class="btn-primary">
+                🚀 Start Flying!
+            </button>
+            
+            <div class="highscore-display">
+                <span class="trophy">🏆</span>
+                <span>Best: <strong id="startHighScore">0</strong></span>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="screen hidden">
+            <div class="gameover-content">
+                <h2>😿 Game Over!</h2>
+                
+                <div class="score-section">
+                    <div class="score-item">
+                        <span class="score-label">Score</span>
+                        <span class="score-value" id="finalScore">0</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="score-label">Best</span>
+                        <span class="score-value best" id="finalHighScore">0</span>
+                    </div>
+                </div>
+
+                <div id="newRecordMsg" class="new-record hidden">
+                    🎉 NEW RECORD! 🎉
+                </div>
+
+                <div class="powerups-collected">
+                    <span>Power-ups collected: </span>
+                    <strong id="powerupsCount">0</strong>
+                </div>
+
+                <button id="restartBtn" class="btn-primary">
+                    🔄 Try Again
+                </button>
+                
+                <button id="shareBtn" class="btn-secondary">
+                    📤 Share Score
+                </button>
+            </div>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pauseScreen" class="screen hidden">
+            <h2>⏸️ Paused</h2>
+            <button id="resumeBtn" class="btn-primary">
+                ▶️ Resume
+            </button>
+            <button id="quitBtn" class="btn-secondary">
+                🏠 Quit
+            </button>
+        </div>
+
+        <!-- HUD (Heads Up Display) -->
+        <div id="hud" class="hud hidden">
+            <div class="score-display">
+                <span id="scoreDisplay">0</span>
+            </div>
+            <div class="powerups-active" id="powerupsActive">
+                <!-- Power-up icons appear here -->
+            </div>
+            <button id="pauseBtn" class="btn-pause">⏸️</button>
+        </div>
+
+        <!-- Mobile Controls Overlay -->
+        <div id="touchOverlay" class="touch-overlay"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
